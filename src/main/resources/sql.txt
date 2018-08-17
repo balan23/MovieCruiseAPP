@@ -1,0 +1,16 @@
+CREATE DATABASE movieDB;
+
+use movieDB;
+
+CREATE TABLE movie (
+		id int(20) NOT Null AUTO_INCREMENT,
+		name VARCHAR(25),
+        comment VARCHAR(100),
+        poster VARCHAR(200),
+        PRIMARY KEY(id)
+        );
+        
+select * from movie;
+
+INSERT INTO movie(name,comment,poster)
+VALUES ("Viswaroopam","Kamal the great ","../sample/path");
