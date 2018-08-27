@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.MovieCruiser.entities.MovieEntity;
+import com.ticbook.MovieCruiserApplication.entities.MovieEntity;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieAlreadyExistsException;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieNotFoundException;
 

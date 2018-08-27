@@ -6,7 +6,7 @@ package com.ticbook.MovieCruiserApplication.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.MovieCruiser.entities.MovieEntity;
+import com.ticbook.MovieCruiserApplication.entities.MovieEntity;
 
 /**
  * @author Manobalan A

@@ -19,7 +19,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import com.MovieCruiser.entities.MovieEntity;
+import com.ticbook.MovieCruiserApplication.entities.MovieEntity;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieAlreadyExistsException;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieNotFoundException;
 import com.ticbook.MovieCruiserApplication.implementation.MovieServiceImpl;

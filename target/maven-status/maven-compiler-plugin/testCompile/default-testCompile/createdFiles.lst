@@ -1,0 +1,4 @@
+com/ticbook/MovieCruiserApplication/MovieCruiserAppApplicationTests.class
+com/ticbook/MovieCruiserApplication/controllers/MovieControllerTest.class
+com/ticbook/MovieCruiserApplication/implementation/MovieServicesImplTest.class
+com/ticbook/MovieCruiserApplication/repositories/MovieEntityRepositoryTest.class
