@@ -27,7 +27,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.MovieCruiser.entities.MovieEntity;
+import com.ticbook.MovieCruiserApplication.entities.MovieEntity;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieAlreadyExistsException;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieNotFoundException;
 import com.ticbook.MovieCruiserApplication.services.MovieService;
