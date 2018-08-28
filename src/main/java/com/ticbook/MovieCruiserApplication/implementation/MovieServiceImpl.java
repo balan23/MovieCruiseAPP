@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.MovieCruiser.entities.MovieEntity;
+import com.ticbook.MovieCruiserApplication.entities.MovieEntity;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieAlreadyExistsException;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieNotFoundException;
 import com.ticbook.MovieCruiserApplication.repositories.MovieEntityRepository;
