@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MovieCruiser.entities.MovieEntity;
+import com.ticbook.MovieCruiserApplication.entities.MovieEntity;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieAlreadyExistsException;
 import com.ticbook.MovieCruiserApplication.exceptions.MovieNotFoundException;
 import com.ticbook.MovieCruiserApplication.services.MovieService;
