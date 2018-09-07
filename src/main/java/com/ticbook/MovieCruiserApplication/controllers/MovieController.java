@@ -8,8 +8,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +25,7 @@ import com.ticbook.MovieCruiserApplication.services.MovieService;
  * @author Manobalan A
  *
  */
-
+@CrossOrigin
 @RestController
 public class MovieController {
 	
@@ -30,8 +33,8 @@ public class MovieController {
 	private MovieService movieService;
 	
 	
-	@PostMapping("/movies/{movieId}")
-	public ResponseEntity<?> getMovieDetails(@PathVariable("movieId") int movieId ){
+	@GetMapping("/movies/{movieId}")
+	public ResponseEntity<?> getMovieDetails(@PathVariable("movieId") final int movieId ){
 		MovieEntity movie = null;
 		ResponseEntity<?> response = null;
 		try {
@@ -43,7 +46,7 @@ public class MovieController {
 		return response;
 	}
 	
-	@PostMapping("/movies/all")
+	@GetMapping("/movies/all")
 	public ResponseEntity<?> getAllMovies(){
 		List<MovieEntity> movieList = null;
 		ResponseEntity<?> response = null;
@@ -57,18 +60,18 @@ public class MovieController {
 	}
 	
 	@PostMapping("/movies/save")
-	public ResponseEntity<?> saveMovieDetails(@RequestBody MovieEntity movie){
+	public ResponseEntity<?> saveMovieDetails(@RequestBody final MovieEntity movie){
 		ResponseEntity<?> response = null;
 		try {
 			movieService.saveMovie(movie);
-			response = new ResponseEntity<MovieEntity>(movie, HttpStatus.OK);
+			response = new ResponseEntity<MovieEntity>(movie, HttpStatus.CREATED);
 		} catch (MovieAlreadyExistsException e) {
 			response = new ResponseEntity<String>("\"message\":\""+e.getMessage()+"\"", HttpStatus.CONFLICT);
 		}
 		return response;
 	}
 	
-	@PostMapping("/movies/update")
+	@PutMapping("/movies/update")
 	public ResponseEntity<?> updateMovieDetails(@RequestBody MovieEntity movie){
 		ResponseEntity<?> response = null;
 		try {
