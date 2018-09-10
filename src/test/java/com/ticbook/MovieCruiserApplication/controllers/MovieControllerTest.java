@@ -7,6 +7,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -88,7 +89,7 @@ public class MovieControllerTest {
 	@Test
 	public void testDeleteById() throws Exception {
 		when(movieService.deleteMovieById(1)).thenReturn(true);
-		mockMvc.perform(post("/movies/delete/{id}",1)).andExpect(status().isOk());
+		mockMvc.perform(delete("/movies/delete/{id}",1)).andExpect(status().isOk());
 		verify(movieService, times(1)).deleteMovieById(1);
 		verifyNoMoreInteractions(movieService);	
 	}
@@ -96,7 +97,7 @@ public class MovieControllerTest {
 	@Test
 	public void testDeleteByIdExeption() throws Exception {
 		when(movieService.deleteMovieById(1)).thenThrow(new MovieNotFoundException("Movie not found exception"));
-		mockMvc.perform(post("/movies/delete/{id}",1)).andExpect(status().isConflict());
+		mockMvc.perform(delete("/movies/delete/{id}",1)).andExpect(status().isConflict());
 		verify(movieService, times(1)).deleteMovieById(1);
 		verifyNoMoreInteractions(movieService);	
 	}
