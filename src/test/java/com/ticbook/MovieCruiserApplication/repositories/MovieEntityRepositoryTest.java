@@ -76,7 +76,7 @@ public class MovieEntityRepositoryTest{
 	public void deleteMovieByIdTest() {
 		movieEntityRepo.save(movie);
 		movieEntityRepo.deleteById(movie.getMovieCode());
-		Optional<MovieEntity> movie = movieEntityRepo.findById(5);
+		Optional<MovieEntity> movie = movieEntityRepo.findById(1);
 		assertFalse(movie.isPresent());
 	}
 	
@@ -84,7 +84,8 @@ public class MovieEntityRepositoryTest{
 	public void getAllMovieTest() {
 		movieEntityRepo.save(movie);
 		movieEntityRepo.save(movie2);
-		assertEquals(2, movieEntityRepo.findAll().size());
+		final List<MovieEntity> movieEntList= movieEntityRepo.findAll();
+	assertEquals(movieEntList.get(0).getMovieCode(),1);
 	}
 	
 
