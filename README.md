@@ -1,1 +1,1 @@
-Application for Movie Cruise ticket booking using Spring Boot 
+Movie Cruise Application for FSE
