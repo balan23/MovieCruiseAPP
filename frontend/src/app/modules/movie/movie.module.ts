@@ -7,14 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [
     HelloWorldComponent, 
-    ThumbnailComponent],
+    ThumbnailComponent,
+  ],
   exports: [
     HelloWorldComponent,
-    ThumbnailComponent
+    ThumbnailComponent,
   ],
   providers: [
 

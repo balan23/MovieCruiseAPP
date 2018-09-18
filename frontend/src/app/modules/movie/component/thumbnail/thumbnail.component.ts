@@ -17,11 +17,11 @@ export class ThumbnailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.
-    get(this.tmdbEndPoint).
-    subscribe((res) =>{
+    this.http.get(this.tmdbEndPoint).subscribe((res) =>{
       const movies = res['results'].map(movie => {
-        movie.poster_path= '${this.imagePrefix}${movie.poster_path}';
+        console.log(this.imagePrefix);
+        movie.poster_path = `${this.imagePrefix}${movie.poster_path}`;
+        console.log(movie.poster_path);
         return movie;
       });
       this.movies.push(...movies);
