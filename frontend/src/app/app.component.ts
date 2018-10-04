@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
-import { ThumbnailComponent } from './modules/movie/component/thumbnail/thumbnail.component';
+
 
 @Component({
   selector: 'app-root',
   template: `
-  <movie-thumbnail> </movie-thumbnail>
+  <mat-toolbar color="primary">
+    <span> Movie Cruise App</span>
+    <button mat-button [routerLink] = "['/movies/popular']">Popular Movie</button>
+    <button mat-button [routerLink] = "['/movies/top_rated']">Top Rated Movie</button>
+    <button mat-button [routerLink] = "['/movies/watchlist']">Watchlisted Movie</button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
      
   `,
   styles: []

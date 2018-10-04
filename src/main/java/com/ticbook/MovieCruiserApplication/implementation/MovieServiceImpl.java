@@ -39,7 +39,7 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public boolean saveMovie(MovieEntity movieEntity) throws MovieAlreadyExistsException {
-		Optional<MovieEntity> movieEntiyById = movieEntityRepository.findById(movieEntity.getMovieCode());
+		Optional<MovieEntity> movieEntiyById = movieEntityRepository.findById(movieEntity.getId());
 		if(movieEntiyById.isPresent()) {
 			throw new MovieAlreadyExistsException("Movie with given id is already Present");
 		}else {
@@ -50,7 +50,7 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public MovieEntity updateMovie(MovieEntity movieEntity) throws MovieNotFoundException {
-		Optional<MovieEntity> movieEntiyById = movieEntityRepository.findById(movieEntity.getMovieCode());
+		Optional<MovieEntity> movieEntiyById = movieEntityRepository.findById(movieEntity.getId());
 		if(!movieEntiyById.isPresent()) {
 			throw new MovieNotFoundException("Movie with given id is not Present");
 		}else {

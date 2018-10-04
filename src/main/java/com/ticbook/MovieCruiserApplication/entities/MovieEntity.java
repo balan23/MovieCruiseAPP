@@ -20,60 +20,72 @@ public class MovieEntity {
 	
 	@Id
 	@Column(name="id")
-	private int movieCode;
+	private int id;
+	
+
+/*	@Column(name="movieCode")
+	private int movieCode;*/
+	
 	@Column(name="name")
-	private String movieName;
+	private String title;
 	@Column(name="comment")
-	private String movieComments;
+	private String overview;
 	@Column(name="poster")
-	private String posterPath;
+	private String poster_path;
 	/**
 	 * @return the movieCode
 	 */
-	public int getMovieCode() {
+/*	public int getMovieCode() {
 		return movieCode;
-	}
+	}*/
 	/**
 	 * @param movieCode the movieCode to set
 	 */
-	public void setMovieCode(int movieCode) {
+/*	public void setMovieCode(int movieCode) {
 		this.movieCode = movieCode;
+	}*/
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	/**
-	 * @return the movieName
+	 * @return the title
 	 */
 	public String getMovieName() {
-		return movieName;
+		return title;
 	}
 	/**
-	 * @param movieName the movieName to set
+	 * @param title the title to set
 	 */
-	public void setMovieName(String movieName) {
-		this.movieName = movieName;
+	public void setMovieName(String title) {
+		this.title = title;
 	}
 	/**
 	 * @return the movieComments
 	 */
 	public String getMovieComments() {
-		return movieComments;
+		return overview;
 	}
 	/**
 	 * @param movieComments the movieComments to set
 	 */
 	public void setMovieComments(String movieComments) {
-		this.movieComments = movieComments;
+		this.overview = movieComments;
 	}
 	/**
 	 * @return the posterPath
 	 */
 	public String getPosterPath() {
-		return posterPath;
+		return poster_path;
 	}
 	/**
 	 * @param posterPath the posterPath to set
 	 */
 	public void setPosterPath(String posterPath) {
-		this.posterPath = posterPath;
+		this.poster_path = posterPath;
 	}
 	
 	

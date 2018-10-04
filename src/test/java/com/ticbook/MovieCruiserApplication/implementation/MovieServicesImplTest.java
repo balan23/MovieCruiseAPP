@@ -45,13 +45,13 @@ public class MovieServicesImplTest {
 	public void initiaModel() {
 		MockitoAnnotations.initMocks(this);
 		movie1 = new MovieEntity();
-		movie1.setMovieCode(1);
+		movie1.setId(1);
 		movie1.setMovieName("The MEG 2018");
 		movie1.setMovieComments("After escaping an attack by what he claims was a 70-foot shark, Jonas Taylor must confront his fears to save those trapped in a sunken submersible.");
 		movie1.setPosterPath("https://www.imdb.com/title/tt4779682/mediaviewer/rm1110263296");
 		movieList.add(movie1);
 		movie2 = new MovieEntity();
-		movie2.setMovieCode(2);
+		movie2.setId(2);
 		movie2.setMovieName("Hotel Transylvania 3: Summer Vacation (2018)");
 		movie2.setMovieComments("Count Dracula and company participate in a cruise for sea-loving monsters, unaware that their boat is being commandeered by the monster-hating Van Helsing family.");
 		movie2.setPosterPath("https://www.imdb.com/title/tt5220122/mediaviewer/rm1546076160");
@@ -63,7 +63,7 @@ public class MovieServicesImplTest {
 	public void getMovieByIdTest() {
 		try {
 			when(movieRepository.findById(Mockito.anyInt())).thenReturn(optional);
-			assertEquals(movie1.getMovieCode(), movieService.getMovieById(movie1.getMovieCode()).getMovieCode());
+			assertEquals(movie1.getId(), movieService.getMovieById(movie1.getId()).getId());
 		} catch (MovieNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -99,7 +99,7 @@ public class MovieServicesImplTest {
 	public void updateMovieTest() throws MovieNotFoundException, MovieAlreadyExistsException {
 		when(movieRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(movie1));
 		when(movieRepository.save(Mockito.mock(MovieEntity.class))).thenReturn(movie1);
-		assertEquals(movie1.getMovieCode(), movieService.updateMovie(movie1).getMovieCode());
+		assertEquals(movie1.getId(), movieService.updateMovie(movie1).getId());
 	}
 	
 	@Test(expected = MovieNotFoundException.class)
@@ -112,14 +112,14 @@ public class MovieServicesImplTest {
 	public void deleteMovieTest() throws MovieNotFoundException, MovieAlreadyExistsException {
 		when(movieRepository.findById(Mockito.anyInt())).thenReturn(Optional.of(movie1));
 		Mockito.doNothing().when(movieRepository).deleteById(Mockito.anyInt());
-		assertTrue(movieService.deleteMovieById(movie1.getMovieCode()));
+		assertTrue(movieService.deleteMovieById(movie1.getId()));
 	}
 	
 	@Test(expected = MovieNotFoundException.class)
 	public void deleteMovieExcepTest() throws MovieNotFoundException, MovieAlreadyExistsException {
 		when(movieRepository.findById(Mockito.anyInt())).thenReturn(empOptional);
 		Mockito.doNothing().when(movieRepository).deleteById(Mockito.anyInt());
-		movieService.deleteMovieById(movie1.getMovieCode());
+		movieService.deleteMovieById(movie1.getId());
 	}
 	
 

@@ -52,13 +52,13 @@ public class MovieControllerTest {
 	public void initiaModel() {
 		movieList = new ArrayList<MovieEntity>();
 		MovieEntity movie1 = new MovieEntity();
-		movie1.setMovieCode(1);
+		movie1.setId(1);
 		movie1.setMovieName("Athiharam1");
 		movie1.setMovieComments("Tells to save the nation for bettermanet");
 		movie1.setPosterPath("https://www.imdb.com/title/tt4779682/mediaviewer/rm1110263296");
 		movieList.add(movie1);
 		MovieEntity movie2 = new MovieEntity();
-		movie2.setMovieCode(2);
+		movie2.setId(2);
 		movie2.setMovieName("Dragon walls");
 		movie2.setMovieComments("good entertainmaint with pakka comedy.");
 		movie2.setPosterPath("https://www.imdb.com/title/tt5220122/mediaviewer/rm1546076160");

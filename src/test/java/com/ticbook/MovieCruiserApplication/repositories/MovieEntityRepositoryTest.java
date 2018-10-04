@@ -41,7 +41,7 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 	@Test
 	public void saveMovieTest() throws Exception {
 		final MovieEntity mov = addMovie();
-		assertThat(mov.getMovieCode()).isEqualTo(1);
+		assertThat(mov.getId()).isEqualTo(1);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 	 */
 	private MovieEntity addMovie() {
 		MovieEntity movie = new MovieEntity();
-		movie.setMovieCode(1);;
+		movie.setId(1);;
 		movie.setMovieName("seemaraja");
 		movie.setMovieComments("Siva's great movie");
 		movie.setPosterPath("www.glitz.com");
@@ -85,7 +85,7 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 		
 		final MovieEntity mov = addMovie();
 
-		assertEquals(1,mov.getMovieCode());
+		assertEquals(1,mov.getId());
 	}
 	
 	@Test
@@ -98,14 +98,14 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 	@Test
 	public void getAllMovieTest() {
 		MovieEntity movie= new MovieEntity();
-		movie.setMovieCode(1);;
+		movie.setId(1);;
 		movie.setMovieName("seemaraja");
 		movie.setMovieComments("Siva's great movie");
 		movie.setPosterPath("www.glitz.com");
 		movieEntityRepo.save(movie);
 		
 		MovieEntity movie2= new MovieEntity();
-		movie2.setMovieCode(2);;
+		movie2.setId(2);;
 		movie2.setMovieName("alagu");
 		movie2.setMovieComments("Siva's great movie");
 		movie2.setPosterPath("www.glitz.com");
@@ -113,7 +113,7 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 
 		final List<MovieEntity> movieEntList= movieEntityRepo.findAll();
 		
-	assertEquals(movieEntList.get(0).getMovieCode(),1);
+	assertEquals(movieEntList.get(0).getId(),1);
 	assertEquals(movieEntList.get(1).getMovieName(),"alagu");
 	}
 	
