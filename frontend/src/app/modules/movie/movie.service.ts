@@ -11,7 +11,7 @@ export class MovieService {
   apiKey: string;
   watchListEndPoint: string;
   springEndPoint: string;
-
+  searchUrl: string;
   constructor(private http: HttpClient) { 
     this.apiKey ='api_key=e6d3b27023d42d6684fbd8e6c8bb8dd5';
     this.tmdbEndPoint = 'https://api.themoviedb.org/3/movie';
@@ -19,6 +19,7 @@ export class MovieService {
     this.watchListEndPoint= 'http://localhost:3000/posts';
 
     this.springEndPoint ='http://localhost:8080/movies';
+    this.searchUrl ='https://api.themoviedb.org/3/search/movie?';
  
 
   }
@@ -50,13 +51,25 @@ pickMovieResults(response){
 }
 
 addMovieToWatchlist(movie){
-return this.http.post("http://localhost:8080/movies/save", movie);
+return this.http.post("http://localhost:8080/movies/save", this.convertMovieBE(movie));
 }
 
 getWatchListedMovies(): Observable<Array<Movie>> {
-  return this.http.get<Array<Movie>>("http://localhost:8080/movies/all");
+
+  return this.http.get<Array<Movie>>("http://localhost:8080/movies/all").pipe(
+    retry(3),
+    map(this.convertBEMovieToWL.bind(this))
+  );
 }
 
+
+convertBEMovieToWL(movies){
+return movies.map(movie=> {
+  movie.poster_path= movie.posterPath;
+  movie.overview = movie.movieComments;
+  return movie;
+})
+}
 
 deleteMovie(movie: Movie){
   var url1=  '';
@@ -65,4 +78,34 @@ console.log(url);
   return this.http.delete(url,{responseType:'text'});
 
 }
+
+convertMovieBE(movie){
+
+  movie.movieName = movie.title;
+  movie.movieComments= movie.overview;
+  movie.posterPath = movie.poster_path;
+  return movie;
+
+}
+
+updateComments(movie){
+  var url1=  '';
+  const    url= url1.concat(this.springEndPoint,'/update');
+  console.log(movie.title,'update to list');
+  return this.http.put(url, movie);
+
+}
+
+searchMovies(searchKey, page:number =5): Observable<Array<Movie>> {
+  if(searchKey.length>0){
+    const url=`${this.searchUrl}${this.apiKey}&page=${page}&include_adult=false&query=${searchKey}`;
+    return this.http.get(url).pipe(
+      retry(3),
+      map(this.pickMovieResults),
+      map(this.transformPosterPath.bind(this))
+    );
+  }
+}
+
+
 }

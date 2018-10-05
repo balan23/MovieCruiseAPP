@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router';
 import { ContainerComponent } from './component/container/container.component';
 import { TmdbContainerComponent } from './component/tmdb-container/tmdb-container.component';
-import { WatchlistComponent } from './component/watchlist/watchlist.component'
+import { WatchlistComponent } from './component/watchlist/watchlist.component';
+import {SearchComponent } from './component/search/search.component';
+
 const movieRoutes: Routes =[
     {
         path: 'movies',
@@ -30,6 +32,10 @@ const movieRoutes: Routes =[
             {
                 path: 'watchlist',
                 component: WatchlistComponent,
+            },
+            {
+                path: 'search',
+                component: SearchComponent,
             }
             
         ]

@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input'
+import { FormsModule } from '@angular/forms';
 const appRoutes: Routes =[
   {
     path: '',
@@ -24,9 +26,10 @@ const appRoutes: Routes =[
     MovieModule,
     BrowserModule,
     BrowserAnimationsModule, MatToolbarModule,
-    MatButtonModule,
+    MatButtonModule,MatInputModule,
     RouterModule.forRoot(appRoutes),
     MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

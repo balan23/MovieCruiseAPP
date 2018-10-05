@@ -23,6 +23,8 @@ useWatchListApi : boolean;
    let message= `${movie.title} added to watchlist.`;
    console.log(movie);
        this.movieService.addMovieToWatchlist(movie).subscribe((movie)=>{
+        console.log('movie2222');
+        console.log(movie);
 
       this.snackBar.open(message,'',{
         duration: 1000
@@ -36,7 +38,7 @@ useWatchListApi : boolean;
  deleteFromWatchList(movie){
   let message= `${movie.title} deleted from watchlist.`;
    for(var i=0;i<this.movies.length;i++){
-     if(this.movies[i].title== movie.title){
+     if(this.movies[i].id == movie.id){
        this.movies.splice(i,1);
      }
 

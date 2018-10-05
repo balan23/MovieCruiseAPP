@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../../movie';
 import { HttpClient } from '@angular/common/http';
-import { MovieService} from '../../movie.service'
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MovieService} from '../../movie.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Output , EventEmitter } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MovieDialogComponent } from '../../component/movie-dialog/movie-dialog.component'
 //import { EventEmitter } from '@angular/core/src/event_emitter';
 @Component({
   selector: 'movie-thumbnail',
@@ -27,7 +28,7 @@ export class ThumbnailComponent implements OnInit {
   @Output()
   updateMovie = new EventEmitter();
 
-  constructor(private movieService: MovieService, private snackBar: MatSnackBar) { 
+  constructor(private movieService: MovieService, private snackBar: MatSnackBar, public dialog: MatDialog) { 
 
    }
 
@@ -50,8 +51,17 @@ export class ThumbnailComponent implements OnInit {
   }
 
 
-  updateFromWatchList(){
-    this.updateMovie.emit
+  updateFromWatchList(actionType){
+   // this.updateMovie.emit
+   console.log('Comment getting updated!!');
+   let dialogRef= this.dialog.open(MovieDialogComponent, {
+     width: '400px',
+     data :{obj: this.movie, actionType: actionType}
+   });
+   console.log("dialog 1");
+   dialogRef.afterClosed().subscribe(result => {
+     console.log('dialog 2 closed');
+   });
   }
 
 }
