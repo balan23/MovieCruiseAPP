@@ -1,0 +1,3 @@
+# Created on 2018-10-31T17:26:52.774
+Error: Could not find or load main class org.apache.maven.surefire.booter.ForkedBooter
+

@@ -49,7 +49,7 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 	 */
 	private MovieEntity addMovie() {
 		MovieEntity movie = new MovieEntity();
-		movie.setId(1);;
+		movie.setId(1);
 		movie.setMovieName("seemaraja");
 		movie.setMovieComments("Siva's great movie");
 		movie.setPosterPath("www.glitz.com");
