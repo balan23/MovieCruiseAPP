@@ -41,7 +41,7 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 	@Test
 	public void saveMovieTest() throws Exception {
 		final MovieEntity mov = addMovie();
-		assertThat(mov.getId()).isEqualTo(1);
+		assertThat(mov.getId()).isEqualTo(5);
 	}
 
 	/**
@@ -49,71 +49,94 @@ public void setRepo(final MovieEntityRepository movieEntityRepo) {
 	 */
 	private MovieEntity addMovie() {
 		MovieEntity movie = new MovieEntity();
-		movie.setId(1);
+		movie.setId(5);
 		movie.setMovieName("seemaraja");
 		movie.setMovieComments("Siva's great movie");
 		movie.setPosterPath("www.glitz.com");
 		movieEntityRepo.save(movie);
-		final MovieEntity mov=  movieEntityRepo.getOne(1);
+		final MovieEntity mov=  movieEntityRepo.getOne(5);
 		return mov;
 	}
 	
 	@Test
 	public void updateMovieTest() throws Exception {
-
-		final MovieEntity uMov=  addMovie();
-		assertEquals(uMov.getMovieName(),"seemaraja");
-		uMov.setMovieComments("Rated 4.0");
+		MovieEntity movie = new MovieEntity();
+		movie.setId(1);
+		movie.setMovieName("KaatrinMozhi");
+		movie.setMovieComments("Rated 5.0");
+		movie.setPosterPath("www.glitz.com");
+		movieEntityRepo.save(movie);
+		final MovieEntity uMov=  movieEntityRepo.getOne(1);
+		assertEquals(uMov.getMovieName(),"KaatrinMozhi");
+		uMov.setMovieComments("Jothika great movie");
 		movieEntityRepo.save(uMov);
 		final MovieEntity mov=  movieEntityRepo.getOne(1);
-		assertEquals(mov.getMovieComments(),"Rated 4.0");
+		assertEquals(mov.getMovieComments(),"Jothika great movie");
 	}	
 
 	
 	@Test
 	public void deleteMovieByIdTest() {
 		
-		final MovieEntity mov=  addMovie();
+		MovieEntity movie = new MovieEntity();
+		movie.setId(5);
+		movie.setMovieName("seemaraja");
+		movie.setMovieComments("Siva's great movie");
+		movie.setPosterPath("www.glitz.com");
+		movieEntityRepo.save(movie);
+		final MovieEntity mov=  movieEntityRepo.getOne(5);
 		assertEquals("seemaraja", mov.getMovieName());
 		movieEntityRepo.delete(mov);
-		assertEquals(Optional.empty(),movieEntityRepo.findById(1));
+		assertEquals(Optional.empty(),movieEntityRepo.findById(5));
 
 	}
 	
 	@Test
 	public void findMovieByIdTest() {		
 		
-		final MovieEntity mov = addMovie();
+		MovieEntity movie = new MovieEntity();
+		movie.setId(7);
+		movie.setMovieName("Sarkar");
+		movie.setMovieComments("Biz Movie");
+		movie.setPosterPath("www.glitz.com");
+		movieEntityRepo.save(movie);
+		final MovieEntity mov=  movieEntityRepo.getOne(7);
 
-		assertEquals(1,mov.getId());
+		assertEquals(7,mov.getId());
 	}
 	
 	@Test
 	public void findMovieByNameTest() {	
 		
-		final MovieEntity mov = addMovie();
-		assertEquals("seemaraja",mov.getMovieName());
+		MovieEntity movie = new MovieEntity();
+		movie.setId(4);
+		movie.setMovieName("Gilli");
+		movie.setMovieComments("Kabadi Movie");
+		movie.setPosterPath("www.glitz.com");
+		movieEntityRepo.save(movie);
+		final MovieEntity mov=  movieEntityRepo.getOne(4);
+		assertEquals("Gilli",mov.getMovieName());
 	}
 	
 	@Test
 	public void getAllMovieTest() {
 		MovieEntity movie= new MovieEntity();
-		movie.setId(1);;
-		movie.setMovieName("seemaraja");
-		movie.setMovieComments("Siva's great movie");
+		movie.setId(10);;
+		movie.setMovieName("Mozhi");
+		movie.setMovieComments("Radha great movie");
 		movie.setPosterPath("www.glitz.com");
 		movieEntityRepo.save(movie);
 		
 		MovieEntity movie2= new MovieEntity();
-		movie2.setId(2);;
+		movie2.setId(11);;
 		movie2.setMovieName("alagu");
-		movie2.setMovieComments("Siva's great movie");
+		movie2.setMovieComments("kumar great movie");
 		movie2.setPosterPath("www.glitz.com");
 		movieEntityRepo.save(movie2);
 
 		final List<MovieEntity> movieEntList= movieEntityRepo.findAll();
 		
-	assertEquals(movieEntList.get(0).getId(),1);
+	assertEquals(movieEntList.get(0).getId(),10);
 	assertEquals(movieEntList.get(1).getMovieName(),"alagu");
 	}
 	
