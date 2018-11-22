@@ -1,19 +1,19 @@
 .movie-thumbnail{
-    width: 400px;
-    margin: 10px;
+    width: 35vh;
+    margin: 5px;
 }
 .movie-overview{
-    height: 80px;
+    height: 37px;
     overflow-x: hidden;
     overflow-y: auto;
-
+    font-size: 9px;
 }
 .movie-overview::-webkit-scrollbar{
     width: 2px;
     background: gray;
 }
 .movie-image{
-    height: 600px;
+    height: 40vh;
 }
 
 .movie-actions{
