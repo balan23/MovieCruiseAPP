@@ -26,11 +26,11 @@ public class MovieEntity {
 /*	@Column(name="movieCode")
 	private int movieCode;*/
 	
-	@Column(name="name")
+	@Column(name="name", length=50)
 	private String title;
-	@Column(name="comment")
+	@Column(name="comment", length=3000)
 	private String overview;
-	@Column(name="poster")
+	@Column(name="poster", length=200)
 	private String poster_path;
 	/**
 	 * @return the movieCode
