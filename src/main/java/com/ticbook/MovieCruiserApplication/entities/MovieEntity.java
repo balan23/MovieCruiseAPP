@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 /**
  * @author Manobalan
@@ -29,6 +30,7 @@ public class MovieEntity {
 	@Column(name="name", length=50)
 	private String title;
 	@Column(name="comment", length=3000)
+	@Size(max=3000)
 	private String overview;
 	@Column(name="poster", length=200)
 	private String poster_path;
