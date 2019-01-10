@@ -18,7 +18,7 @@ export class MovieService {
     this.imagePrefix = 'https://image.tmdb.org/t/p/w500';
     this.watchListEndPoint= 'http://localhost:3000/posts';
 
-    this.springEndPoint ='http://localhost:8080/movies';
+    this.springEndPoint ='http://localhost:8080/api/v1/movieservice';
     this.searchUrl ='https://api.themoviedb.org/3/search/movie?';
  
 
@@ -51,12 +51,12 @@ pickMovieResults(response){
 }
 
 addMovieToWatchlist(movie){
-return this.http.post("http://localhost:8080/movies/save", this.convertMovieBE(movie));
+return this.http.post("http://localhost:8080/api/v1/movieservice/save", this.convertMovieBE(movie));
 }
 
 getWatchListedMovies(): Observable<Array<Movie>> {
 
-  return this.http.get<Array<Movie>>("http://localhost:8080/movies/all").pipe(
+  return this.http.get<Array<Movie>>("http://localhost:8080/api/v1/movieservice/all").pipe(
     retry(3),
     map(this.convertBEMovieToWL.bind(this))
   );

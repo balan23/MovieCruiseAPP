@@ -1,0 +1,10 @@
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/repositories/MovieEntityRepository.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/MovieCruiserApplication.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/exceptions/MovieNotFoundException.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/config/SwaggerConfig.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/controllers/MovieController.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/entities/MovieEntity.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/filter/JwtFilter.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/services/MovieService.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/exceptions/MovieAlreadyExistsException.java
+/home/ubuntu/Downloads/MovieCruiserApplication/MovieCruiserBackend/src/main/java/com/ticbook/MovieCruiserApplication/implementation/MovieServiceImpl.java

@@ -4,7 +4,7 @@ import { HelloWorldComponent } from './component/hello-world/hello-world.compone
 import { ThumbnailComponent } from './component/thumbnail/thumbnail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieService } from './movie.service';
-
+import { TokenInterceptor } from './interceptor.service';
 import { ContainerComponent } from './component/container/container.component';
 import { MovieRouterModule } from './movie-router.module';
 import { MatCardModule } from '@angular/material/card';
@@ -16,6 +16,8 @@ import { MovieDialogComponent } from './component/movie-dialog/movie-dialog.comp
 import { MatInputModule } from '@angular/material/input'
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './component/search/search.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -42,7 +44,12 @@ import { SearchComponent } from './component/search/search.component';
     MovieRouterModule,
     MovieDialogComponent,SearchComponent,
   ],
-  providers: [MovieService]
+  providers:[
+    MovieService,{provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptor,
+    multi:true
+  }
+  ],
 
 })
 export class MovieModule { }

@@ -4,6 +4,7 @@ import { ContainerComponent } from './component/container/container.component';
 import { TmdbContainerComponent } from './component/tmdb-container/tmdb-container.component';
 import { WatchlistComponent } from './component/watchlist/watchlist.component';
 import {SearchComponent } from './component/search/search.component';
+import { AuthGuardService } from '../../authGuard.service';
 
 const movieRoutes: Routes =[
     {
@@ -13,11 +14,13 @@ const movieRoutes: Routes =[
             {
                 path :'',
                 redirectTo:'/movies/popular',
-                pathMatch: 'full'
+                pathMatch: 'full',
+                canActivate: [AuthGuardService]
             },
             {
                 path: 'popular',
                 component: TmdbContainerComponent,
+                canActivate: [AuthGuardService],
                 data: {
                     movieType: 'popular',
                 }
@@ -25,6 +28,7 @@ const movieRoutes: Routes =[
             {
                 path: 'top_rated',
                 component: TmdbContainerComponent,
+                canActivate: [AuthGuardService],
                 data:{
                     movieType: 'top_rated',
                 }
@@ -32,10 +36,12 @@ const movieRoutes: Routes =[
             {
                 path: 'watchlist',
                 component: WatchlistComponent,
+                canActivate: [AuthGuardService],
             },
             {
                 path: 'search',
                 component: SearchComponent,
+                canActivate: [AuthGuardService],
             }
             
         ]

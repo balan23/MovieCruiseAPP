@@ -1,30 +1,41 @@
-version: '2'
+version: '3'
 services:
-  mysql:
-   image: mysql:latest
-   ports:
-     - "3306:3306"
-   container_name: mysql-docker
-   network_mode: host
-   environment:
-     MYSQL_ROOT_PASSWORD: root
-     MYSQL_DATABASE: movieDb
-     MYSQL_USER: app_root
-     MYSQL_PASSWORD: root123
-
-  spring:
-    image: mano2020/moviecruiser:spring-image
-    restart: always
-    network_mode: host
-    container_name: spring-docker
-    depends_on:
-      - mysql
-    ports:
-      - 8080:8080
-
-  angular:
-    image: mano2020/moviecruiser:angular-image
-    network_mode: host
-    container_name: angular-docker
-    ports:
-      - 4200:4200
+ mysql:
+  image: mysql:5.5
+  ports:
+   - "3306:3306"
+  container_name: mysql-docker
+  network_mode: host
+  environment:
+   MYSQL_ROOT_PASSWORD: root
+   MYSQL_DATABASE: movieDB
+   MYSQL_USER: root
+   MYSQL_PASSWORD: root
+ movie-app:
+  image: movie-app
+  build: MovieCruiserBackend/
+  restart: always
+  network_mode: host
+  depends_on:
+   - mysql
+  ports:
+   - 8080:8080
+  expose:
+   - 8080
+ user-app:
+  image: user-app
+  build: MovieCruiserAuthentication/
+  restart: always
+  network_mode: host
+  depends_on:
+   - mysql
+  ports:
+   - 8089:8089
+  expose:
+   - 8089
+ angular:
+  image: angular-app
+  build: frontend/
+  network_mode: host
+  ports:
+   - 4200:4200

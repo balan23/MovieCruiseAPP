@@ -1,9 +1,0 @@
-com/ticbook/MovieCruiserApplication/controllers/MovieController.class
-com/ticbook/MovieCruiserApplication/services/MovieService.class
-com/ticbook/MovieCruiserApplication/config/SwaggerConfig.class
-com/ticbook/MovieCruiserApplication/entities/MovieEntity.class
-com/ticbook/MovieCruiserApplication/exceptions/MovieNotFoundException.class
-com/ticbook/MovieCruiserApplication/implementation/MovieServiceImpl.class
-com/ticbook/MovieCruiserApplication/MovieCruiserApplication.class
-com/ticbook/MovieCruiserApplication/exceptions/MovieAlreadyExistsException.class
-com/ticbook/MovieCruiserApplication/repositories/MovieEntityRepository.class

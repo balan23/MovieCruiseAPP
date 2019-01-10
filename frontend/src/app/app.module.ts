@@ -10,11 +10,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input'
 import { FormsModule } from '@angular/forms';
-const appRoutes: Routes =[
+import { AuthGuardService } from './authGuard.service';
+import { AuthenticationModule } from './modules/authentication/authentication.module';
+
+const appRoutes: Routes = [
   {
     path: '',
-    redirectTo:'movies',
-    pathMatch: 'full',
+    redirectTo: '/login',
+    pathMatch: 'full'
   }
 ]
 
@@ -29,9 +32,10 @@ const appRoutes: Routes =[
     MatButtonModule,MatInputModule,
     RouterModule.forRoot(appRoutes),
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    AuthenticationModule,
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
