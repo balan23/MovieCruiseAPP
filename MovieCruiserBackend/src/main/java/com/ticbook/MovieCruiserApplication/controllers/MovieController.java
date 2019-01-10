@@ -55,7 +55,7 @@ public class MovieController {
 		return response;
 	}
 	
-	@GetMapping("/movies/all")
+	@GetMapping("/all")
 	public ResponseEntity<?> getAllMovies(final ServletRequest req, ServletResponse res){
 		List<MovieEntity> movieList = null;
 		ResponseEntity<?> responseEnt = null;
@@ -74,7 +74,7 @@ public class MovieController {
 		return responseEnt;
 	}
 	
-	@PostMapping("/movies/save")
+	@PostMapping("/save")
 	public ResponseEntity<?> saveMovieDetails(@RequestBody final MovieEntity movie,  HttpServletRequest request, HttpServletResponse response1){
 		ResponseEntity<?> response = null;
 		
@@ -92,7 +92,7 @@ public class MovieController {
 		return response;
 	}
 	
-	@PutMapping("/movies/update")
+	@PutMapping("/update")
 	public ResponseEntity<?> updateMovieDetails(@RequestBody MovieEntity movie){
 		ResponseEntity<?> response = null;
 		try {
@@ -105,7 +105,7 @@ public class MovieController {
 		return response;
 	}
 	
-	@DeleteMapping("/movies/delete/{movieId}")
+	@DeleteMapping("/delete/{movieId}")
 	public ResponseEntity<?> deleteMovieDetails(@PathVariable("movieId") int movieId ){
 		ResponseEntity<?> response = null;
 		try {

@@ -67,13 +67,14 @@ convertBEMovieToWL(movies){
 return movies.map(movie=> {
   movie.poster_path= movie.posterPath;
   movie.overview = movie.movieComments;
+  movie.movieId = movie.id;
   return movie;
 })
 }
 
 deleteMovie(movie: Movie){
   var url1=  '';
-  const    url= url1.concat(this.springEndPoint,'/delete/',movie.id);
+  const    url= url1.concat(this.springEndPoint,'/delete/',movie.movieId);
 console.log(url);
   return this.http.delete(url,{responseType:'text'});
 
