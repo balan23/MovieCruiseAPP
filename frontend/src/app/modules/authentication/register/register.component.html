@@ -3,48 +3,48 @@
         <div class="row">
             <mat-card-title>Register User</mat-card-title>
         </div>
-        <div class="row errorDiv">
+        <!-- <div class="row errorDiv">
             {{errorMessage}}
-        </div>
+        </div> -->
         <div class="row">
             <mat-form-field class="input-full-width">
                 <input matInput id="firstName" name="firstName" placeholder="First Name" [(ngModel)] = "newUser.firstName" required #firstName="ngModel"/>
             </mat-form-field><br/>
-            <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="errorDiv">
+            <!-- <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="errorDiv">
                 <div *ngIf="firstName.errors.required">
                     First name is required.
                 </div>
-            </div>
+            </div> -->
             <mat-form-field class="input-full-width">
                 <input matInput id="lastName" name="lastName" placeholder="Last Name" [(ngModel)] = "newUser.lastName" required #lastName="ngModel"/>
             </mat-form-field><br/>
-            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="errorDiv">
+            <!-- <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="errorDiv">
                 <div *ngIf="lastName.errors.required">
                     Last name is required.
                 </div>
-            </div>
+            </div> -->
             <mat-form-field class="input-full-width">
                 <input matInput id="userId" name="userId" placeholder="User ID" [(ngModel)] = "newUser.userId" required minlength="6" #userId="ngModel"/>
             </mat-form-field><br/>
-            <div *ngIf="userId.invalid && (userId.dirty || userId.touched)" class="errorDiv">
+            <!-- <div *ngIf="userId.invalid && (userId.dirty || userId.touched)" class="errorDiv">
                 <div *ngIf="userId.errors.required">
                     User ID is required.
                 </div>
                 <div *ngIf="userId.errors.minlength">
                     User ID must be at least 6 characters long.
                 </div>
-            </div>
+            </div> -->
             <mat-form-field class="input-full-width">
                 <input matInput type="password" id="password" name="password" placeholder="Password" [(ngModel)] = "newUser.password" required minlength="6" #password="ngModel"/>
             </mat-form-field>
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errorDiv">
+            <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errorDiv">
                 <div *ngIf="password.errors.required">
                     Password is required.
                 </div>
                 <div *ngIf="password.errors.minlength">
                     Password must be at least 6 characters long.
                 </div>
-            </div>
+            </div> -->
         </div>
         <br/>
         <div class="row">

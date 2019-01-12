@@ -1,0 +1,21 @@
+<h1></h1>
+<mat-toolbar color="primary">
+<span>Movie Cruiser</span>
+<span>&nbsp;&nbsp;</span>
+
+<button id= "popular" mat-button [routerLink] = "['/movies/popular']">Popular Movie</button>
+<span>&nbsp;</span>
+<button id= "top_rated" mat-button [routerLink] = "['/movies/top_rated']">Top Rated Movie</button>
+<span>&nbsp;</span>
+<button id= "watchlist" mat-button [routerLink] = "['/movies/watchlist']">Watchlisted Movie</button>
+<span>&nbsp;</span>
+<button id= "search" mat-button [routerLink] = "['/movies/search']">Search Movie</button>
+
+<span>&nbsp;</span>
+<span>&nbsp;</span>
+<span>&nbsp;</span>
+<span>&nbsp;</span>
+<span>&nbsp;</span>
+<button id= "logout" mat-button  (click)="logout()">LogOut</button>
+</mat-toolbar>
+<router-outlet></router-outlet>

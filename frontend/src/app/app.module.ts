@@ -38,4 +38,5 @@ const appRoutes: Routes = [
   providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
