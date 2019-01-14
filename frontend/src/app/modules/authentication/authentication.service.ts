@@ -11,6 +11,7 @@ export const TOKEN_NAME:string = 'jwt_token';
 export class AuthenticationService {
   
   springEndpoint: string;
+  loginUrl: string;
   token: string;
 
   constructor(private http: HttpClient) {

@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input'
 import { FormsModule } from '@angular/forms';
 import { AuthGuardService } from './authGuard.service';
 import { AuthenticationModule } from './modules/authentication/authentication.module';
+import { MatCardModule } from '@angular/material';
 
 const appRoutes: Routes = [
   {
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule, MatToolbarModule,
     MatButtonModule,MatInputModule,
     RouterModule.forRoot(appRoutes),
+    MatCardModule,
     MatDialogModule,
     FormsModule,
     AuthenticationModule,

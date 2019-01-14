@@ -1,14 +1,14 @@
 <form class="login-form" #loginForm="ngForm" (ngSubmit)="loginForm.form.valid && loginUser()">
     <div class="login-block">
         <div class="row">
-            <mat-card-title>Login User</mat-card-title>
+            <h3>Login User</h3>
         </div>
         <div class="row errorDiv">
             {{errorMessage}}
         </div>
         <div class="row">
             <mat-form-field class="input-full-width">
-                <input matInput id="userId" name="userId" placeholder="User ID" [(ngModel)] = "user.userId" required #userId="ngModel"/>
+                <input matInput id="userId" class="inputID" name="userId" placeholder="User ID" [(ngModel)] = "user.userId" required #userId="ngModel"/>
             </mat-form-field><br/>
             <div *ngIf="userId.invalid && (userId.dirty || userId.touched)" class="errorDiv">
                 <div *ngIf="userId.errors.required">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <mat-form-field class="input-full-width">
-                <input matInput type="password" id="password" name="password" placeholder="Password" [(ngModel)] = "user.password" required #password="ngModel"/>
+                <input matInput type="password" class="inputPass" id="password" name="password" placeholder="Password" [(ngModel)] = "user.password" required #password="ngModel"/>
             </mat-form-field>
             <div *ngIf="password.invalid && (password.dirty || password.touched)" class="errorDiv">
                 <div *ngIf="password.errors.required">
@@ -32,10 +32,10 @@
         </div>
         <br/>
         <div class="row">
-                <mat-card-actions>
-            <button id="login" mat-botton color="primary">Login</button>
-            <button id="register" mat-botton color="primary" [routerLink]="['/register']">Register</button>
-        </mat-card-actions>
+                <!-- <mat-card-actions> -->
+            <button class="login-user" id="login" mat-botton color="primary">Login</button>
+            <button class="register-button" id="register" mat-botton color="primary" [routerLink]="['/register']">Register</button>
+        <!-- </mat-card-actions> -->
         </div>
     </div>
 </form>

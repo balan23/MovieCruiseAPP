@@ -4,6 +4,7 @@ import { User } from '../User';
 import { AuthenticationService } from '../authentication.service';
 import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatCardModule } from '@angular/material';
 @Component({
   selector: 'user-login',
   templateUrl: './login.component.html',
