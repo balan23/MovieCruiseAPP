@@ -23,19 +23,20 @@ describe('movie-cruiser-application', () => {
   });
   it('register user and redirect to login', () => {
     browser.element(by.id('firstName')).sendKeys('manobalan');
-    browser.driver.sleep(1000);
+
     browser.element(by.id('lastName')).sendKeys('mayonguru');
-    browser.driver.sleep(1000);
-    browser.element(by.id('userId')).sendKeys('balan2020');
-    browser.driver.sleep(1000);
+
+    browser.element(by.id('userId')).sendKeys('balan2022');
+
     browser.element(by.id('password')).sendKeys('thedon12');
-    browser.driver.sleep(500);
+    browser.driver.sleep(5000);
     browser.element(by.id('register')).submit();
-    expect(browser.getCurrentUrl()).toContain('/login');
+    browser.driver.sleep(1000);
+
   });
 
   it('login user redirect to popular movies after login', () => {
-    browser.element(by.id('userId')).sendKeys('balan2020');
+    browser.element(by.id('userId')).sendKeys('balan2022');
     browser.element(by.id('password')).sendKeys('thedon12');
     browser.element(by.buttonText('Login')).submit();
     expect(browser.getCurrentUrl()).toContain('/movies/popular');
